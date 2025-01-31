@@ -118,10 +118,10 @@ public class InAppBrowserPlugin: CAPPlugin, CAPBridgedPlugin {
 
         guard
             let options: OSInAppBrowserWebViewModel = self.createModel(for: call.getObject("options")),
-            let url = URL(string: urlString),
-            var urlRequest = URLRequest(url: url)
+            let url = URL(string: urlString)
         else { return self.error(call, type: .inputArgumentsIssue(target: target)) }
-        
+
+        var urlRequest = URLRequest(url: url)
         for header in headers {
             urlRequest.setValue(header.value, forHTTPHeaderField: header.key)
         }
