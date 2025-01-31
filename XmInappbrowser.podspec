@@ -15,14 +15,4 @@ Pod::Spec.new do |s|
   s.dependency 'OSInAppBrowserLib'
   s.dependency 'Capacitor'
   s.swift_version = '5.1'
-
-  s.post_install do |installer|
-    podfile_path = File.join(installer.sandbox.root, '../../Podfile')
-    podfile_content = File.read(podfile_path)
-    unless podfile_content.include?("pod 'OSInAppBrowserLib'")
-      File.open(podfile_path, 'a') do |file|
-        file.puts "\npod 'OSInAppBrowserLib', :git => 'https://github.com/trading-point/OSInAppBrowserLib-iOS.git', :tag => 'custom-headers'\n"
-      end
-    end
-  end
 end
