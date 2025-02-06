@@ -1,6 +1,6 @@
 {
   "name": "@xm/inappbrowser",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "The InAppBrowser Plugin provides a web browser view that allows you to load any web page externally. It behaves as a standard web browser and is useful to load untrusted content without risking your application's security. It offers three different ways to open URLs; in a WebView, in an in-app system browser (Custom Tabs for Android and SFSafariViewController for iOS), and in the device's default browser.",
   "main": "./dist/plugin.cjs",
   "module": "./dist/plugin.mjs",
@@ -52,7 +52,9 @@
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
     "prepublishOnly": "npm run build",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "publish:latest": "pnpm publish --no-git-checks",
+    "publish:next": "pnpm publish --no-git-checks --tag next"
   },
   "devDependencies": {
     "@capacitor/android": "next",
